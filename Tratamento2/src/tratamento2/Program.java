@@ -28,14 +28,8 @@ public class Program {
 		System.out.println("Bloco executado. Independente do try-catch");
 	}
 		
-	/*	
-	catch(ArrayIndexOutOfBoundsException e) {
-		System.out.println();
-	}
-	*/
-		
-		
-
+			
+		sc.close();
 	}
 
 }
