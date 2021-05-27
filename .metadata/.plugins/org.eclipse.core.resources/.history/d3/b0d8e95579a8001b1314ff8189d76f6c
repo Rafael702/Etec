@@ -1,0 +1,26 @@
+package application;
+
+import entities.Cachorro;
+import entities.Gato;
+import entities.Vaca;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Cachorro dog = new Cachorro ();
+		dog.setNome("Billy Willis");
+		System.out.println(dog.som());
+		
+		Gato cat = new Gato();
+		cat.setNome("Catman");
+		System.out.println(cat.som());
+		
+		Vaca cow = new Vaca();
+		cow.setNome("Liuroy");
+		System.out.println(cow.som());
+		
+		
+	}
+
+}
