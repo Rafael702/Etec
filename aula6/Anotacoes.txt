@@ -1,0 +1,4 @@
+Construtores
+
+Um dos beneficios de construir um construtor é a possibilidade de inseirir parâmetros na hora de construir
+o objeto.
