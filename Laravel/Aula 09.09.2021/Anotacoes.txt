@@ -1,0 +1,42 @@
+xampp
+getcomposer
+
+composer --version no terminal do dos
+
+composer create-project laravel/laravel curso-laravel-aula1
+
+cd\  : volta tudo
+
+php artisan serve --> starta o servidor web
+
+rotas (routes)
+
+views - Ficam as telas/ html e css
+
+Vamos apontar as rotas para as views
+
+Routes::get('rota', function(){
+
+});
+
+Sempre que for criar uma view, deve-se colocar o .blade.php
+
+Parametro dinâmico: sempre digita
+Parametro estatico: fica fixo
+
+Se eu quiser deixar só o barra (estou dizendo que a rota é para a raiz).
+
+Routes::get('/', function(){
+	return view('welcome');
+});
+
+Frisando:
+php artisan serve starta o servidor.
+Semelhante ao ng serve
+
+criando variáveis no laravel>
+{{$variavel}} (Obs: Isto deve ser feito na view)
+
+
+
+
