@@ -17,27 +17,75 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="138dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textSize="20dp" />
+            android:layout_width="154dp"
+            android:layout_height="38dp"
+            android:text="Usuário:"
+            android:textSize="25dp" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/acessoUser"
             android:layout_width="wrap_content"
-            android:layout_height="29dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPassword"
-            android:textSize="14sp" /><![CDATA[
+            android:inputType="textPersonName" /><![CDATA[
+
+
 
         />
+
     ]]>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:text="Senha:"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/acessoSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btncancelar"
+            android:layout_width="174dp"
+            android:layout_height="68dp"
+            android:text="CANCELAR" />
+
+        <Space
+            android:layout_width="55dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnlogar"
+            android:layout_width="203dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:text="LOGAR" />
+
     </LinearLayout>
 </LinearLayout>

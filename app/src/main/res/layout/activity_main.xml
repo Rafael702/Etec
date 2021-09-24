@@ -4,60 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="306dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="#81817E"
         android:text="CALCULADORA DE IMC"
+        android:textColor="@color/white"
         android:textSize="23dp" />
-
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:background="?android:attr/listDivider" />
-
-    <EditText
-        android:id="@+id/txt_peso"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:background="#81817E" />
+
+    <TextView
+        android:id="@+id/viewnome"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:text="NOME:"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/txt_nome"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/viewpeso"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:text="PESO"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/txt_peso"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="?android:attr/listDivider" />
+        android:layout_gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/viewaltura"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:text="ALTURA"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/txt_altura"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:layout_gravity="center_horizontal" />
 
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:background="?android:attr/listDivider" />
+        android:layout_height="18dp"
+        android:background="#81817E"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/btnCalcular"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:background="#989368"
         android:text="CALCULAR" />
 
-    <View
-        android:id="@+id/divider4"
+    <TextView
+        android:id="@+id/viewtotal"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:background="?android:attr/listDivider" />
+        android:layout_height="31dp"
+        android:text="Total IMC:"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/totalimc"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_gravity="center_vertical" />
+
+    <EditText
+        android:id="@+id/txtdescricao"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_gravity="center_vertical" />
 
     <Button
         android:id="@+id/btnLimpar"
