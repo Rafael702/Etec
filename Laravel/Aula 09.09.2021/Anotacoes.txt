@@ -1,6 +1,7 @@
+Instalar:
 xampp
 getcomposer
-
+-------------------------------------------------------
 composer --version no terminal do dos
 
 composer create-project laravel/laravel curso-laravel-aula1

@@ -1,0 +1,100 @@
+Existem duas formas de usar as rotas no Laravel>
+Route::get('/jogos',funtion() {
+	return view('jogos');
+});
+
+A outra forma é: Chamando a view diretamente
+Route::view('/jogos','jogos'');
+
+Temos também a possibilidade de nomear as rotas:
+Route::get('/jogos', funtion(){
+	return('jogos');
+})->name('jogos-legais');
+
+Podemos enviar parametros estáticos e dinamicos>
+Parametros -> São valores que passamos entre as páginas e variaveis para que elas funcionem de formas mais dinamicas
+Parametros estáticos> São os valores definidos dentro da página
+Pametros dinamicos> São os valores que cai na URL.
+
+//enviando parametros estaticos
+Route::view('/jogos','jogos', ['nomeJogo' => 'Fifa 2020']);
+
+Chamando variaveis:
+
+Ir na view e colocar:
+{{ $nomeJogo }}
+
+Como exibir os valores oriundos de uma view:
+Route::view('/jogos', 'jogos' , ['idJogo'=>1, 'nomeJogo'=>'FiFa 2020', 'precoJogo' => 250]);
+
+Dentro da body
+<body>
+    <h1>Exibindo dados de jogos</h1>
+    <b>Nome do Jogo:  </b> {{ $nomeJogo }} <br>
+    <b>Preço do Jogo: </b> {{$precoJogo}}  
+</body>
+
+
+Arquivos dentro de uma pasta
+//Criando a rota  para apontar para a camada view/admin
+Route::view('/jogos/admin', 'admin.usuario');
+--------------------------------------------------------------------
+Route::view('/jogos/admin', 'admin.usuario');
+
+//Criando rota para chamar o cadastro de Funcionario
+
+Route::view('/jogos/funcionario','funcionario.cadastro');
+
+Route::view('/', 'welcome');
+
+Ao invés de mostrar o erro 404 not found, faremos:
+//Erro de rotas/tratamento:
+Route::fallback(function(){
+    return 'Erro! Rota inválida';
+});
+
+Que apresenta o erro na tela.
+
+O get -> pegar parametros da url.
+Route::get('/jogos/dinamicos', function(){
+    return view('jogos');
+});
+
+parametro dinamico>
+Route::get('/jogos/dinamico/{nome}', function($nome){
+        return view('dinamico.jogos', ['nomeJogo'=>$nome]);
+});
+
+Deixando a rota sem a obrigação de ter valores:
+Route::get('/jogos/dinamico/{id?}/{nome?}', function($id=null,$nome=null){
+    return view ('dinamico.jogos2', ['idJogo'=>$id, 'nomeJogo'=>$nome]);
+});
+
+Revisão:
+Rout::view
+Rout::get
+Rout::fallback
+
+Regras de negócio> id, só deve receber número!
+
+cmder_mini-> programa que personaliza o cmd, ou com o cmd personalizado (cores diferentes).
+
+Fazendo com que o parametro aceite apenas números:
+Route::get('jogos/dinamico/{id}', function($id){
+    return view('dinamico.jogos2', ['idJogos'=>$id]);
+})->where('id','[0-9]+');
+
+Máscara de espécificação:
+where('id','[0-9]+');
+
+Outras máscaras:
+Números: where('id','[0-9]+');
+Letras: where('name','[A-Za-z]+');
+
+numero e caractere
+->where(['id','[0-9]+', 'name'=>'[a-z]+']);	
+
+Fazendo com que o parametro aceite apenas letras:
+Route::get('/jogos/dinamico/{nome}', function($nome){
+    return view('dinamico.jogos2',['nomeJogo'=>$nome]);
+})->where('nome','[A-Za-z]+');
