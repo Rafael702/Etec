@@ -1,0 +1,104 @@
+As rotas.
+
+O return pode retornar qualquer coisa, desde textos até as views.
+
+Route::get('admin/financeiro', function(){
+    return 'Bem vindo a Tela - Financeiro';
+});
+
+Route::get('admin/financeiro', function(){
+    return view('pasta.financeiro');
+});
+
+Em um acesso na internet, principalmente nas áreas corporativas, existem algumas partes do site
+que o usuário não pode acessar, como por exemplo a parte do administrador.
+
+Sendo assim, para evitar acessos indevidos, é necessário colocar um filtro>
+middleware.
+
+Existe um filtro chamado de auth, de autenticação. Colocaremos ele como parametro em middleware.
+->middleware('auth');
+
+Aplicação:
+Route::get('admin/dashboard', function(){
+    return 'Bem vindo a Tela - DashBoard';
+})->middleware('auth'); => Indica que a rota precisa de uma autenticação.
+
+Depois disso, o middleware vai exigir uma rota login.
+
+Route::get('/login', function(){
+    return 'Bem vindo a Página - LOGIN';
+})->name('login');
+
+Outra forma de fazer isso é, colocando todas estas rotas dentro de uma rota do tipo middleware();
+
+Rout::middleware('auth')group(function(){
+	Incluir todos os grupos de rotas
+que precisam de filtro.
+
+});
+
+Aplicação:
+Route::middleware('auth')->group(function(){
+    Route::get('/admin/teste',function(){
+        return 'Bem Vindo a Pagina - Teste';
+    });
+
+    Route::get('admin/financeiro', function(){
+        return 'Bem vindo a Tela - Financeiro';
+    });
+    
+    Route::get('admin/usuarios', function(){
+        return 'Bem vindo a Tela - Usuário';
+    });
+    
+    Route::get('admin/produtos', function(){
+        return 'Bem vindo a Tela - Produtos';
+    });
+    
+    Route:: get('admin/fornecedores', function(){
+        return 'Bem Vindo a Tela - Fornecedores';
+    });
+});
+
+Fica mais fácil de fazer manutenção, pois todas rotas estão apenas em uma rota do tipo middleware.
+
+Para facilitar também na nomeclatura das rotas, temos:
+
+    Route::prefix('admin')->group(function(){
+});
+
+Não precisamos colocar o admin toda vez.
+
+Aplicação:
+Route::middleware('auth')->group(function(){
+    
+    Route::prefix('admin')->group(function(){
+
+    
+
+    Route::get('/teste',function(){
+        return 'Bem Vindo a Pagina - Teste';
+    });
+
+    Route::get('/financeiro', function(){
+        return 'Bem vindo a Tela - Financeiro';
+    });
+    
+    Route::get('/usuarios', function(){
+        return 'Bem vindo a Tela - Usuário';
+    });
+    
+    Route::get('/produtos', function(){
+        return 'Bem vindo a Tela - Produtos';
+    });
+    
+    Route:: get('/fornecedores', function(){
+        return 'Bem Vindo a Tela - Fornecedores';
+        });
+
+    });
+
+});
+
+
