@@ -1,0 +1,83 @@
+Comandos usados na aula do 21.10.2021
+composer create-project laravel/laravel curso_laravel.aula10
+
+php artisan serve
+
+php artisan list - Lista de Comandos básicos
+
+make - criar algo.
+Sempre é usado para cria algo. Tudo é através do make;
+----------------------------------------------------------------------------------------------
+Para criar o controlador:
+php artisan make: controller (nome do controller sempre no singular) JogoController
+
+Do you want to run "make:controller" instead?  (yes/no) [no]:
+> yes
+
+Controller created successfully.
+
+A rota para o controller, não recebe function
+fica:
+Route::get('/nomeview',[|NomeController::class,'index']);
+
+Ficou:
+Route::get('/jogos',[JogoController::class,'index']);
+
+index - nome de um método que será colocado no controller.
+
+Para cada entidade que for criada, eu crio um controller para controlar.
+
+O método index, será criado na controller. 
+
+Na Classe JogoController
+class JogoController extends Controller
+{
+    public function index(){
+        
+    }
+}
+
+Caso o JogoController ou a Controller não seja reconhecida, basta ir na linha 3 e abaixo dela
+na linha 4, fazer o uso da controller. Fica:
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JogoController;
+ISSO em routes
+
+A classe JogoController fica -
+class JogoController extends Controller
+{
+    public function index(){
+    
+        return view('jogos');
+    }
+}
+
+Parametro estatico
+
+Variavel recebendo uma String
+
+$nome = 'FiFa';
+
+Ele deve retornar na view jogos
+Fica:
+return view('jogos',['nome'=>$nome]);
+
+E lá na view, em jogos colocamos a variavel por lá.
+Fica>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>Listagem de Jogos</h1>
+    <hr>
+    {{ $nome }}
+</body>
+</html>
+
